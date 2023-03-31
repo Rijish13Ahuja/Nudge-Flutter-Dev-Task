@@ -1,7 +1,7 @@
 # Nudge-Flutter-Dev-Task
-he app has three pages: Home, About, and Contact. The Home page is the landing page and has a component that toggles between a Launcher and a Banner. The Contact page only displays the Banner component, and the About page displays a simple text message.
+The app has three pages: Home, About, and Contact. The Home page is the landing page and has a component that toggles between a Launcher and a Banner. The Contact page only displays the Banner component, and the About page displays a simple text message.
 
-Getting Started
+##Getting Started
 To use this code, you need to have Flutter installed on your system. You can download it from here.
 Clone this repository to your local machine.
 Open the project in your preferred IDE or editor.
