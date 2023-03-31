@@ -1,0 +1,10 @@
+The code uses the following Flutter widgets and components:
+
+Scaffold: A basic material design layout structure that provides the app bar, body, and other common elements of an app screen.
+AppBar: A material design app bar that displays the title and other optional elements.
+Column: A layout widget that arranges its children vertically in a column.
+ElevatedButton: A material design button widget that displays an elevated surface and responds to touch.
+Center: A layout widget that centers its child widget horizontally and vertically.
+GestureDetector: A widget that detects gestures, such as taps and drags, on its child widget.
+Container: A widget that provides a rectangular visual element with optional decoration.
+Text: A widget that displays a string of text.
