@@ -1,0 +1,143 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'My App',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/contact': (context) => ContactPage(),
+        '/about': (context) => AboutPage(),
+      },
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool _showLauncher = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Home Page'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          RootComponent(showLauncher: _showLauncher),
+          ElevatedButton(
+            child: Text('Toggle Component'),
+            onPressed: () {
+              setState(() {
+                _showLauncher = !_showLauncher;
+              });
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ContactPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Contact Page'),
+      ),
+      body: Center(
+        child: RootComponent(showLauncher: false),
+      ),
+    );
+  }
+}
+
+class AboutPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('About Page'),
+      ),
+      body: Center(
+        child: Text('This is the About Page'),
+      ),
+    );
+  }
+}
+
+class RootComponent extends StatelessWidget {
+  final bool showLauncher;
+
+  RootComponent({this.showLauncher});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        showLauncher ? Launcher() : Banner(),
+      ],
+    );
+  }
+}
+
+class Launcher extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet(
+          context: context,
+          builder: (BuildContext context) {
+            return Container(
+              height: 200.0,
+              color: Colors.white,
+              child: Center(
+                child: Text('This is the modal'),
+              ),
+            );
+          },
+        );
+      },
+      child: Container(
+        height: 200.0,
+        color: Colors.blue,
+        child: Center(
+          child: Text('Launcher'),
+        ),
+      ),
+    );
+  }
+}
+
+class Banner extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/about');
+      },
+      child: Container(
+        height: 200.0,
+        color: Colors.green,
+        child: Center(
+          child: Text('Banner'),
+        ),
+      ),
+    );
+  }
+}
